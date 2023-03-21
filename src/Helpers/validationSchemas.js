@@ -1,5 +1,5 @@
-const Input = ({ register, errors, type, name, label, readOnly = false, watch = null }) => {
-  const validation = {
+export const signupSchema = (watch) => {
+  return {
     shortText: {
       required: 'Field required',
       minLength: {
@@ -88,25 +88,4 @@ const Input = ({ register, errors, type, name, label, readOnly = false, watch = 
       },
     },
   }
-
-  const getInputType = (inputType) => {
-    if (inputType === 'date') return 'date'
-    if (inputType === 'password' || inputType === 'confirmPassword') return 'password'
-    return 'text'
-  }
-
-  return (
-    <div className="input-wrapper">
-      <label htmlFor={name}>{label}</label>
-      <input
-        className={`text-input ${errors[name] && 'input-error'}`}
-        type={getInputType(type)}
-        {...register(name, validation[type])}
-        readOnly={readOnly}
-      />
-      <p className="input-error-text">{errors[name]?.message}</p>
-    </div>
-  )
 }
-
-export default Input

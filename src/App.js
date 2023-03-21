@@ -1,17 +1,18 @@
-import { createBrowserRouter, redirect, RouterProvider } from 'react-router-dom'
-import MainApp from './Components/MainApp'
-import Business from './Pages/Public/Business'
-import Dashboard from './Pages/Dashboard'
-import Developer from './Pages/Public/Developer'
-import FakeStore from './Pages/FakeStore'
-import Help from './Pages/Public/Help'
-import Home from './Pages/Public/Home'
-import Login from './Pages/Public/Login'
-import PaymentView from './Pages/PaymentView.jsx'
-import Personal from './Pages/Personal'
-import Signup from './Pages/Public/Signup'
-import UserProfile from './Pages/UserProfile'
-import './Styles/App.css'
+import QrPage from 'Pages/QrPage'
+import {
+  createBrowserRouter,
+  Route,
+  redirect,
+  RouterProvider,
+  createRoutesFromElements,
+} from 'react-router-dom'
+import 'Styles/App.css'
+import 'Styles/Buttons.css'
+import MainApp from 'Components/MainApp'
+import GatewayPage from 'Pages/GatewayPage.jsx'
+import LoginPage from 'Pages/Public/LoginPage'
+import Signup from 'Pages/Public/Signup'
+import Home from 'Pages/Private/Home'
 
 const checkForToken = () => {
   if (!localStorage.getItem('token')) {
@@ -20,76 +21,28 @@ const checkForToken = () => {
   return null
 }
 
-const loginLoader = ({ params }) => {
+const loginLoader = ({ params = {} } = {}) => {
   if (localStorage.getItem('token')) {
-    throw redirect('/dashboard')
+    throw redirect('/home')
   }
-  return (params = { isOnGateway: false })
+  return { ...params, isOnGateway: false }
 }
 
-const router = createBrowserRouter([
-  {
-    path: '/',
-    element: <MainApp />,
-    // errorElement: <ErrorPage />,
-    children: [
-      {
-        path: '',
-        element: <Home />,
-      },
-      {
-        path: 'personal',
-        element: <Personal />,
-      },
-      {
-        path: 'business',
-        element: <Business />,
-      },
-      {
-        path: 'developer',
-        element: <Developer />,
-      },
-      {
-        path: 'help',
-        element: <Help />,
-      },
-      {
-        path: 'login',
-        loader: loginLoader,
-        element: <Login />,
-      },
-      {
-        path: 'signup',
-        loader: loginLoader,
-        element: <Signup />,
-      },
-      {
-        path: '',
-        loader: checkForToken, // protected routes
-        children: [
-          {
-            path: 'dashboard',
-            element: <Dashboard />,
-          },
-          {
-            path: 'profile',
-            element: <UserProfile />,
-          },
-        ],
-      },
-    ],
-  },
-  {
-    path: 'gateway/:productUuid',
-    loader: ({ params }) => (params = { ...params, isOnGateway: true }),
-    element: <PaymentView />,
-  },
-  {
-    path: 'fakestore',
-    element: <FakeStore />,
-  },
-])
+const gatewayLoader = ({ params }) => (params = { ...params, isOnGateway: true })
 
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <Route path="/" element={<MainApp />}>
+      <Route path="qrpage" element={<QrPage />} />
+      <Route path="login" element={<LoginPage />} loader={loginLoader} />
+      <Route path="signup" element={<Signup />} loader={loginLoader} />
+      <Route loader={checkForToken}>
+        <Route path="home" element={<Home />} />
+      </Route>
+      <Route path="gateway/:slug" element={<GatewayPage />} loader={gatewayLoader} />,
+    </Route>,
+  ),
+)
 function App() {
   return <RouterProvider router={router} />
 }
