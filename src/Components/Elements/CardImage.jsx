@@ -6,10 +6,9 @@ const CardImage = ({ gradient, position, cardInfo }) => {
 
   const formatCardNumber = (cardNumber) => {
     const length = cardNumber.length
-    const lastNums = cardNumber.substring(length - 5, length - 1)
+    const lastNums = cardNumber.substring(length - 4)
     return `**** **** **** ${lastNums}`
   }
-
   return (
     <div className={`card ${gradient} ${position}`}>
       <div className="card__top-info">
