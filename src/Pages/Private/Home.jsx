@@ -4,20 +4,12 @@ import NoCardInfo from 'Components/Elements/NoCardInfo'
 import HomeActions from 'Components/Home/HomeActions'
 import HomeFunds from 'Components/Home/HomeFunds'
 import HomeHeader from 'Components/Home/HomeHeader'
+import useCardsArray from 'Hooks/useCardsArray'
 import useGetUserInfo from 'Hooks/useGetUserInfo'
-import { useState } from 'react'
 
 const Home = () => {
   const { userCtxt, payMets } = useGetUserInfo()
-  const [position, setPosition] = useState(['cards__first', 'cards__second', 'cards__third'])
-
-  const rotate = () => {
-    const arr = position
-    const first = arr.shift()
-    arr.push(first)
-    setPosition([...arr])
-  }
-
+  const { cards, handleClick } = useCardsArray(payMets, userCtxt.funds)
   return (
     <>
       <HomeHeader name={userCtxt.firstName} />
@@ -26,12 +18,7 @@ const Home = () => {
         {payMets.length === 0 ? (
           <NoCardInfo />
         ) : (
-          <CardsArray
-            funds={userCtxt.funds}
-            payMets={payMets}
-            rotate={rotate}
-            position={position}
-          />
+          <CardsArray cards={cards} handleClick={handleClick} />
         )}
         <HomeActions accountType={userCtxt.accountType} />
       </section>

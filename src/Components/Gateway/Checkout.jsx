@@ -1,7 +1,7 @@
-import CardImage from 'Components/Elements/CardImage'
 import CardImageFunds from 'Components/Elements/CardImageFunds'
 import CardsArray from 'Components/Elements/CardsArray'
 import TextHeader from 'Components/Elements/TextHeader'
+import useCardsArray from 'Hooks/useCardsArray'
 import { useState } from 'react'
 import 'Styles/Checkout.css'
 import DonateAmounts from './CheckoutInfo/DonateAmounts'
@@ -10,20 +10,20 @@ import FixAmount from './CheckoutInfo/FixAmount'
 const Checkout = ({ sellerInfo, payMets, funds, confirmTransaction, handleRadioDonation }) => {
   const { checkoutType, totalAmount } = sellerInfo
   const [isDisabled, setIsDisabled] = useState(false)
-  const [position, setPosition] = useState(['cards__first', 'cards__second', 'cards__third'])
-
-  const rotate = () => {
-    const arr = position
-    const first = arr.shift()
-    arr.push(first)
-    setPosition([...arr])
-  }
+  const { cards, order, handleClick } = useCardsArray(payMets, funds)
 
   const pay = () => {
     setIsDisabled(true)
-    if (position[0] === 'cards__first') confirmTransaction('buyerFunds')
-    if (position[0] === 'cards__second') confirmTransaction(payMets[0])
-    if (position[0] === 'cards__third') confirmTransaction(payMets[1])
+    let dataToSubmit
+
+    if (payMets.length === 0 || order === 0) {
+      dataToSubmit = 'buyerFunds'
+    } else {
+      dataToSubmit = payMets[order - 1]
+    }
+    console.log('Submitting data:', dataToSubmit)
+
+    confirmTransaction(dataToSubmit)
   }
 
   return (
@@ -36,7 +36,7 @@ const Checkout = ({ sellerInfo, payMets, funds, confirmTransaction, handleRadioD
         )}
 
         {payMets.length > 0 ? (
-          <CardsArray payMets={payMets} funds={funds} rotate={rotate} position={position} />
+          <CardsArray payMets={payMets} funds={funds} cards={cards} handleClick={handleClick} />
         ) : (
           <div className="checkout__no-cards">
             <CardImageFunds funds={funds} key="c" />

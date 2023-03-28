@@ -44,19 +44,23 @@
 }
 
 .home-cards {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
 
-.home-cards__1 {
-  grid-template-rows: 1fr;
+.home-cards .card__wrapper:nth-child(1) {
+  height: 40px;
 }
-.home-cards__2 {
-  grid-template-rows: 40px 1fr;
+
+.home-cards .card__wrapper:nth-child(2) {
+  height: 40px;
 }
-.home-cards__3 {
-  grid-template-rows: 40px 40px 1fr;
-}
+
+/* .home-cards .card__wrapper:nth-child(3) {
+} */
+
 
 .home-actions {
   display: flex;
