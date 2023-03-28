@@ -76,8 +76,8 @@ export const signupSchema = (watch) => {
     cardNumber: {
       required: requiredMsg,
       maxLength: {
-        value: 20,
-        message: 'Este campo debe tener menos de 30 caracteres',
+        value: 16,
+        message: 'Este campo debe tener 16 caracteres',
       },
       pattern: { value: /^\d+$/, message: 'No es un formato de número de tarjeta válido' },
     },

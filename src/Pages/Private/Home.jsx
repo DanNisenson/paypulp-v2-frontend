@@ -1,4 +1,5 @@
 import CardsArray from 'Components/Elements/CardsArray'
+import LogoutButton from 'Components/Elements/LogoutButton'
 import NoCardInfo from 'Components/Elements/NoCardInfo'
 import HomeActions from 'Components/Home/HomeActions'
 import HomeFunds from 'Components/Home/HomeFunds'
