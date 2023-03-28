@@ -9,10 +9,13 @@ export default function useGetUserInfo() {
   const [payMets, setPayMets] = useState([])
 
   useEffect(() => {
+    let userData
+    let payMetsData
     const getData = async () => {
       try {
         const { data } = await UserInfo.getUserInfo()
-        setUserCtxt(data)
+        userData = data
+        setUserCtxt(userData)
       } catch (err) {
         toast.error(
           'Ha habido un problema accediendo a tu informacion. Intentalo de nuevo mas tarde',
@@ -24,7 +27,8 @@ export default function useGetUserInfo() {
     const getUserPayMets = async () => {
       try {
         const { data } = await PaymentMethods.getPayMets()
-        setPayMets(data)
+        payMetsData = data
+        setPayMets(payMetsData)
       } catch (err) {
         console.log(err)
         toast.error('Ha habido un error accediendo a tus metodos de pago')
@@ -33,5 +37,5 @@ export default function useGetUserInfo() {
     getUserPayMets()
   }, [])
 
-  return { userCtxt, payMets }
+  return { userCtxt, setUserCtxt, payMets, setPayMets }
 }
