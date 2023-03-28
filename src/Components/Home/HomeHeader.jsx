@@ -1,19 +1,14 @@
-import 'Styles/Home.css'
 import avatar from 'Assets/Images/Avatar.png'
 import QuestionMark from 'Components/Elements/Icons/QuestionMark'
-import { useNavigate } from 'react-router'
+import useLogOut from 'Hooks/useLogout'
+import 'Styles/Home.css'
 
 const Header = ({ name }) => {
-  const navigate = useNavigate()
-
-  const signOut = () => {
-    sessionStorage.clear()
-    navigate('/login')
-  }
+  const { logout } = useLogOut()
 
   return (
     <div className="home-header">
-      <img className="home-header__avatar" src={avatar} alt="Avatar" onClick={signOut} />
+      <img className="home-header__avatar" src={avatar} alt="Avatar" onClick={logout} />
       <h3 className="home-header__greeting">Hola {name}</h3>
       <div className="home-header__help">
         <QuestionMark />
