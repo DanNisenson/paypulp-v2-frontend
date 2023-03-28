@@ -1,4 +1,4 @@
-import AddPaymentMethodForm from 'Components/Elements/AddPaymentMathodForm'
+import AddPaymentMethodForm from 'Components/Elements/AddPaymentMethodForm'
 import TextHeader from 'Components/Elements/TextHeader'
 import { useNavigate } from 'react-router'
 import { useForm } from 'react-hook-form'
