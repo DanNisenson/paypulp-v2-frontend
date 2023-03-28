@@ -7,7 +7,7 @@ export default function useCardsArray(payMets = null, funds) {
 
   let cards = null
 
-  if (payMets?.length === 0) {
+  if (payMets.length === 0) {
     cards = <CardImageFunds funds={funds} />
   } else {
     const cardFunds = [
@@ -15,7 +15,7 @@ export default function useCardsArray(payMets = null, funds) {
         <CardImageFunds funds={funds} />
       </div>,
     ]
-    const payMetsComps = payMets?.map((met, i) => (
+    const payMetsComps = payMets.map((met, i) => (
       <div className="card__wrapper" key={i + 1}>
         <CardImage cardInfo={met} gradient={`card__gradient--${i + 1}`} />
       </div>

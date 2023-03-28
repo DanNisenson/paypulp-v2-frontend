@@ -1,15 +1,8 @@
-import TextInput from './TextInput'
 import { signupSchema } from 'Helpers/validationSchemas'
 import 'Styles/AddPaymentMethod.css'
+import TextInput from './TextInput'
 
-const AddPaymentMethodForm = ({
-  watch,
-  errors,
-  isValid,
-  register,
-  onCardOwnerNameChange,
-  onCardNumberChange,
-}) => {
+const AddPaymentMethodForm = ({ watch, errors, isValid, register }) => {
   const schema = signupSchema(watch)
   const { longText, cardNumber } = schema
 
@@ -23,8 +16,6 @@ const AddPaymentMethodForm = ({
           register={register}
           validationType={longText}
           errors={errors}
-          onChange={(e) => onCardOwnerNameChange(e)}
-
         />
         <TextInput
           type="text"
@@ -33,7 +24,6 @@ const AddPaymentMethodForm = ({
           register={register}
           validationType={cardNumber}
           errors={errors}
-          onChange={(e) => onCardNumberChange(e)}
         />
       </div>
 

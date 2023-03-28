@@ -1,15 +1,14 @@
+import { useEffect } from 'react'
 import toast from 'react-hot-toast'
 import 'Styles/Inputs.css'
-import { useEffect } from 'react'
-import Mail from './Icons/Mail'
+import Cake from './Icons/Cake'
 import EyeClosed from './Icons/EyeClosed'
+import House from './Icons/House'
+import Mail from './Icons/Mail'
 import Person from './Icons/Person'
 import Phone from './Icons/Phone'
-import Cake from './Icons/Cake'
-import House from './Icons/House'
 
-
-const TextInput = ({ type, name, label, validationType, register, errors, onChange }) => {
+const TextInput = ({ type, name, label, validationType, register, errors }) => {
   const errorMessage = errors?.[name]?.message
 
   useEffect(() => {
@@ -25,7 +24,7 @@ const TextInput = ({ type, name, label, validationType, register, errors, onChan
       <label className="text-aux" htmlFor={name}>
         {label}
       </label>
-      <input className="text" type={type} {...register(name, validationType)} onChange={onChange}/>
+      <input className="text" type={type} {...register(name, validationType)} />
       {inputIcon(name)}
     </div>
   )

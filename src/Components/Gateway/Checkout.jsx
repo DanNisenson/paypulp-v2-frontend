@@ -7,7 +7,14 @@ import 'Styles/Checkout.css'
 import DonateAmounts from './CheckoutInfo/DonateAmounts'
 import FixAmount from './CheckoutInfo/FixAmount'
 
-const Checkout = ({ sellerInfo, payMets, funds, confirmTransaction, handleRadioDonation }) => {
+const Checkout = ({
+  sellerInfo,
+  payMets,
+  funds,
+  confirmTransaction,
+  handleRadioDonation,
+  resetPage,
+}) => {
   const { checkoutType, totalAmount } = sellerInfo
   const [isDisabled, setIsDisabled] = useState(false)
   const { cards, order, handleClick } = useCardsArray(payMets, funds)
@@ -28,7 +35,7 @@ const Checkout = ({ sellerInfo, payMets, funds, confirmTransaction, handleRadioD
 
   return (
     <>
-      <TextHeader text="Completa el checkout" />
+      <TextHeader text="Completa el checkout" navigate={resetPage} />
       <div className="checkout__wrapper">
         {checkoutType === 'fixed' && <FixAmount totalAmount={totalAmount} />}
         {checkoutType === 'donate' && (

@@ -13,6 +13,7 @@ const GatewayPage = () => {
     isSubmit,
     confirmTransaction,
     handleRadioDonation,
+    resetPage,
   } = useGateway(sellerInfo)
 
   return (
@@ -25,6 +26,7 @@ const GatewayPage = () => {
           funds={funds}
           confirmTransaction={confirmTransaction}
           handleRadioDonation={handleRadioDonation}
+          resetPage={resetPage}
         />
       )}
     </>
