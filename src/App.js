@@ -18,13 +18,13 @@ import QrGenPage from 'Pages/Private/QrGenPage'
 import AddSellerInfoPage from 'Pages/Private/AddSellerInfoPage'
 import PayWithQR from 'Pages/Private/PayWithQR'
 import AddPaymentMethod from 'Pages/Private/AddPaymentMethod'
+import { toast } from 'react-hot-toast'
 
 const checkForToken = async () => {
   const token = sessionStorage.getItem('token')
 
   if (!token) {
-    window.location.href = '/login'
-    return null
+    throw redirect('/login')
   }
 
   const url = `${process.env.REACT_APP_BASE_URL}/private/user/validatetoken`
@@ -38,21 +38,11 @@ const checkForToken = async () => {
 
     if (response.status === 200) {
       return null
-    } else if (response.status === 401) {
-      sessionStorage.removeItem('token')
-      window.location.href = '/login?error=Unauthorized'
-      return null
-    } else {
-      throw new Error(`Unexpected status code: ${response.status}`)
     }
   } catch (error) {
-    if (error.response && error.response.status === 401) {
-      sessionStorage.removeItem('token')
-      window.location.href = '/login?error=Unauthorized'
-    } else {
-      window.location.href = '/login?error=UnexpectedError'
-    }
-    return null
+    sessionStorage.clear()
+    toast.error('Ha habido un problema de autorización')
+    throw redirect('/login')
   }
 }
 
