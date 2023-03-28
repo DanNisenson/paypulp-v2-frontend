@@ -9,7 +9,7 @@ import Cake from './Icons/Cake'
 import House from './Icons/House'
 
 
-const TextInput = ({ type, name, label, validationType, register, errors }) => {
+const TextInput = ({ type, name, label, validationType, register, errors, onChange }) => {
   const errorMessage = errors?.[name]?.message
 
   useEffect(() => {
@@ -25,7 +25,7 @@ const TextInput = ({ type, name, label, validationType, register, errors }) => {
       <label className="text-aux" htmlFor={name}>
         {label}
       </label>
-      <input className="text" type={type} {...register(name, validationType)} />
+      <input className="text" type={type} {...register(name, validationType)} onChange={onChange}/>
       {inputIcon(name)}
     </div>
   )

@@ -1,7 +1,15 @@
 import TextInput from './TextInput'
 import { signupSchema } from 'Helpers/validationSchemas'
+import 'Styles/AddPaymentMethod.css'
 
-const AddPaymentMethodForm = ({ watch, errors, isValid, register }) => {
+const AddPaymentMethodForm = ({
+  watch,
+  errors,
+  isValid,
+  register,
+  onCardOwnerNameChange,
+  onCardNumberChange,
+}) => {
   const schema = signupSchema(watch)
   const { longText, cardNumber } = schema
 
@@ -15,6 +23,8 @@ const AddPaymentMethodForm = ({ watch, errors, isValid, register }) => {
           register={register}
           validationType={longText}
           errors={errors}
+          onChange={(e) => onCardOwnerNameChange(e)}
+
         />
         <TextInput
           type="text"
@@ -23,10 +33,11 @@ const AddPaymentMethodForm = ({ watch, errors, isValid, register }) => {
           register={register}
           validationType={cardNumber}
           errors={errors}
+          onChange={(e) => onCardNumberChange(e)}
         />
       </div>
 
-      <div className="login-form__buttons">
+      <div className="addPaymentMethod-form__button">
         <button className="btn btn-solid btn-long" disabled={!isValid}>
           Guardar método de pago
         </button>
