@@ -71,7 +71,7 @@
   height: 220px;
   width: 350px;
   border-radius: 12px;
-  padding: 15px 21px 26px 18px;
+  padding: 15px 21px 26px 15px;
   flex-direction: column;
   justify-content: space-between;
   color: #ffffff;
@@ -87,9 +87,18 @@
   background: linear-gradient(244.42deg, #363b3e 21.65%, #29efcb 70.95%);
 }
 
+
 .card-funds__top-info {
   display: flex;
   justify-content: space-between;
+}
+
+.card-funds__top-text {
+  padding: 10px 0 0 0;
+}
+
+.card-funds__logo {
+  height: 36px;
 }
 
 .card-funds__number {

@@ -2,11 +2,9 @@ import FundsInput from 'Components/Elements/FundsInput'
 import { userContext } from 'Context/UserContext'
 import { useContext, useState } from 'react'
 import QRCode from 'react-qr-code'
-import { useNavigate } from 'react-router'
 import 'Styles/QrGen.css'
 
 const QrGen = ({ checkoutType, goToHome }) => {
-  const navigate = useNavigate()
   const { userCtxt } = useContext(userContext)
   const [write, setWrite] = useState('')
 
