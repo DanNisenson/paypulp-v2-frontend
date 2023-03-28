@@ -1,6 +1,5 @@
-import { userContext } from 'Context/UserContext'
-import { useContext } from 'react'
 import 'Styles/CardImage.css'
+import VisaLogo from './Icons/VisaLogo'
 
 const CardImage = ({ gradient, position, cardInfo }) => {
   const { cardNumber, cardOwnerName } = cardInfo
@@ -14,8 +13,10 @@ const CardImage = ({ gradient, position, cardInfo }) => {
   return (
     <div className={`card ${gradient} ${position}`}>
       <div className="card__top-info">
-        <div className="card__top-text">Credit Card</div>
-        <div className="card__text">Logo</div>
+        <div className="card__top-text">Debit Card</div>
+        <div className="card__text">
+          <VisaLogo />
+        </div>
       </div>
       <div className="card__number">{formatCardNumber(cardNumber)}</div>
       <div className="card__bottom-info">
