@@ -24,7 +24,6 @@ const AddPaymentMethod = () => {
   const navigate = useNavigate()
   const goBack = () => {
     navigate('/home')
-
   }
 
   const onSubmitHandler = (data) => {
