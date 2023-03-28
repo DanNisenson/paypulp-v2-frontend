@@ -1,6 +1,6 @@
-import HeaderLogin from './HeaderLogin'
 import 'Styles/Login.css'
 import FormLogin from './FormLogin'
+import HeaderLogin from './HeaderLogin'
 
 const Login = ({ setBuyerToken }) => {
   return (
