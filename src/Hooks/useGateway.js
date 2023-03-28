@@ -145,6 +145,7 @@ const useGateway = (sellerInfo) => {
     payMets,
     confirmTransaction,
     handleRadioDonation,
+    resetPage,
   }
 }
 
