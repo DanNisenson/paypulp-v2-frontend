@@ -93,7 +93,7 @@ const router = createBrowserRouter(
           loader={passParams}
         />
         <Route path="paywithqr" element={<PayWithQR />} />
-        <Route path="addpaymentmethod" element={<AddPaymentMethod />}/>
+        <Route path="addpaymentmethod" element={<AddPaymentMethod />} />
         <Route
           path="qrgen/:accountType/:checkoutType"
           element={<QrGenPage />}
