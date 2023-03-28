@@ -1,6 +1,11 @@
-const PayPulpLogo = () => {
+const PayPulpLogo = ({ size = '48' }) => {
   return (
-    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 48 48"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg">
       <path
         d="M1 47V27.4937H10.2579V12.9367C10.2579 8.86075 14.7711 1 23.566 1C32.361 1 37.7421 9.15189 37.7421 12.9367V27.4937H47V47"
         stroke="#29EFCB"
