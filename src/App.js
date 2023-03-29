@@ -6,6 +6,7 @@ import AddSellerInfoPage from 'Pages/Private/AddSellerInfoPage'
 import Home from 'Pages/Private/Home'
 import PayWithQR from 'Pages/Private/PayWithQR'
 import QrGenPage from 'Pages/Private/QrGenPage'
+import Four04 from 'Pages/Public/Four04'
 import LoginPage from 'Pages/Public/LoginPage'
 import Signup from 'Pages/Public/Signup'
 import { toast } from 'react-hot-toast'
@@ -70,7 +71,7 @@ const passParams = ({ params }) => params
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/" element={<MainApp />} loader={goToLogin}>
+    <Route path="/" element={<MainApp />} loader={goToLogin} errorElement={<Four04 />}>
       <Route path="login" element={<LoginPage />} loader={checkAlreadyAuthenticated} />
       <Route path="signup" element={<Signup />} loader={checkAlreadyAuthenticated} />
       <Route loader={checkForToken}>
