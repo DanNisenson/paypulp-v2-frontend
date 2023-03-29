@@ -41,7 +41,7 @@ const Registration1 = ({ register, setPage, watch, errors, isValid }) => {
           <TextInput
             name="lastName"
             type="text"
-            label="Apellido:"
+            label="Apellidos:"
             register={register}
             validationType={shortText}
             errors={errors}
@@ -49,7 +49,7 @@ const Registration1 = ({ register, setPage, watch, errors, isValid }) => {
           <TextInput
             name="phone"
             type="text"
-            label="Numero de teléfono:"
+            label="Teléfono:"
             register={register}
             validationType={phone}
             errors={errors}
@@ -73,7 +73,7 @@ const Registration1 = ({ register, setPage, watch, errors, isValid }) => {
           <TextInput
             name="confirmPassword"
             type="password"
-            label="Confirma Contraseña:"
+            label="Confirmar contraseña:"
             register={register}
             validationType={confirmPassword}
             errors={errors}
@@ -82,7 +82,7 @@ const Registration1 = ({ register, setPage, watch, errors, isValid }) => {
 
         <div className="signup-button__spacing">
           <button className="btn btn-solid btn-long" onClick={() => setPage(2)} disabled={!isValid}>
-            REGISTRARSE
+            Continuar
           </button>
         </div>
       </div>

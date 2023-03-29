@@ -75,7 +75,7 @@ const Registration2 = ({ register, setPage, watch, errors, isValid }) => {
 
         <div className="signup-button__spacing">
           <button className="btn btn-solid btn-long" disabled={!isValid}>
-            GUARDAR
+            Registrarse
           </button>
         </div>
       </div>
