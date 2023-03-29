@@ -2,7 +2,7 @@ import FundsInput from 'Components/Elements/FundsInput'
 import { userContext } from 'Context/UserContext'
 import { useContext, useState } from 'react'
 import QRCode from 'react-qr-code'
-import 'Styles/QrGen.css'
+import 'Styles/QrGen.scss'
 
 const baseUrl = process.env.REACT_APP_FRONT_URL
 

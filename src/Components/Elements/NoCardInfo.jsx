@@ -1,4 +1,4 @@
-import 'Styles/NoCardInfo.css'
+import 'Styles/NoCardInfo.scss'
 
 const NoCardInfo = () => {
   return (

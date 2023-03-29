@@ -1,4 +1,4 @@
-import 'Styles/TextHeader.css'
+import 'Styles/TextHeader.scss'
 import ArrowLeft from './Icons/ArrowLeft'
 
 const TextHeader = ({ text, navigate }) => {

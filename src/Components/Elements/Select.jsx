@@ -1,4 +1,4 @@
-import 'Styles/Inputs.css'
+import 'Styles/Inputs.scss'
 import Gender from './Icons/Gender'
 
 const Select = ({ name, label, register, validationType, categories, selected }) => {

@@ -1,4 +1,4 @@
-import 'Styles/Login.css'
+import 'Styles/Login.scss'
 import FormLogin from './FormLogin'
 import HeaderLogin from './HeaderLogin'
 

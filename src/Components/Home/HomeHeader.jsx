@@ -1,7 +1,7 @@
 import avatar from 'Assets/Images/Avatar.png'
 import QuestionMark from 'Components/Elements/Icons/QuestionMark'
 import useLogOut from 'Hooks/useLogout'
-import 'Styles/Home.css'
+import 'Styles/Home.scss'
 
 const Header = ({ name }) => {
   const { logout } = useLogOut()

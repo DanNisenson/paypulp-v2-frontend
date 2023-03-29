@@ -1,8 +1,8 @@
 import { signupSchema } from 'Helpers/validationSchemas'
 import TextInput from 'Components/Elements/TextInput'
 import { useNavigate } from 'react-router-dom'
-import 'Styles/Auth.css'
-import 'Styles/Signup.css'
+import 'Styles/Auth.scss'
+import 'Styles/Signup.scss'
 
 const Registration1 = ({ register, setPage, watch, errors, isValid }) => {
   const schema = signupSchema(watch)
