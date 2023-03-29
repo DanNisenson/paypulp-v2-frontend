@@ -4,15 +4,14 @@ import { useContext, useState } from 'react'
 import QRCode from 'react-qr-code'
 import 'Styles/QrGen.css'
 
+const baseUrl = process.env.REACT_APP_FRONT_URL
+
 const QrGen = ({ checkoutType, goToHome }) => {
   const { userCtxt } = useContext(userContext)
-  const [write, setWrite] = useState('')
+  const [write, setWrite] = useState(getDefaultUrl(baseUrl, userCtxt.userUuid, checkoutType))
 
   const handleChange = (amount) => {
-    const baseUrl = process.env.REACT_APP_FRONT_URL
-    const sellerUuid = userCtxt.userUuid
-
-    const url = `${baseUrl}/gateway/${sellerUuid}/${checkoutType}/${amount}`
+    const url = `${baseUrl}/gateway/${userCtxt.userUuid}/${checkoutType}/${amount}`
     setWrite(url)
   }
 
@@ -60,6 +59,11 @@ const QrGen = ({ checkoutType, goToHome }) => {
       </button>
     </div>
   )
+}
+
+const getDefaultUrl = (base, uuid, type) => {
+  if (type === 'donate') return `${base}/gateway/${uuid}/${type}/4`
+  return ''
 }
 
 export default QrGen

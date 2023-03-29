@@ -1,5 +1,3 @@
-import { userContext } from 'Context/UserContext'
-import { useContext } from 'react'
 import { useNavigate } from 'react-router'
 import useGetUserInfo from './useGetUserInfo'
 

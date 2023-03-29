@@ -34,7 +34,6 @@ const useGateway = (sellerInfo) => {
   }, [buyerToken])
 
   const handleRadioDonation = (value) => {
-    console.log(value)
     setTransactionInfo({
       ...transactionInfo,
       totalAmount: value,
@@ -88,6 +87,7 @@ const useGateway = (sellerInfo) => {
     const pMetId = payMet === 'buyerFunds' ? payMet : payMet.paymentMethodUuid
 
     const updateInfo = {
+      totalAmount: transactionInfo.totalAmount,
       paymentMethodUuid: pMetId,
       transactionUuid: transactionInfo.transactionUuid,
       userCompleted: true,

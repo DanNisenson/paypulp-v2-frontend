@@ -1,9 +1,11 @@
 import TextHeader from 'Components/Elements/TextHeader'
+import useClearUserData from 'Hooks/useClearUserData'
 import { QrReader } from 'react-qr-reader'
 import { useNavigate } from 'react-router'
 
 const PayWithQR = () => {
   const navigate = useNavigate()
+  const clearData = useClearUserData()
 
   const camStyle = {
     position: 'relative',
@@ -29,6 +31,7 @@ const PayWithQR = () => {
         <QrReader
           onResult={(result) => {
             if (result) {
+              clearData()
               const url = result.text.match(/^https?:\/\/[^/]+(\/[^?#]*)/i)[1]
               navigate(url)
             }
