@@ -11,12 +11,16 @@ export default function useCardsArray(payMets = null, funds) {
     cards = <CardImageFunds funds={funds} />
   } else {
     const cardFunds = [
-      <div id={payMets.length === 1 && 'big-card'} className="card__wrapper" key={0}>
+      <div
+        className={`card__wrapper ${payMets.length === 1 ? 'card__wrapper-1' : undefined}`}
+        key={0}>
         <CardImageFunds funds={funds} />
       </div>,
     ]
     const payMetsComps = payMets.map((met, i) => (
-      <div className="card__wrapper" key={i + 1}>
+      <div
+        className={`card__wrapper ${payMets.length === 1 ? 'card__wrapper-1' : undefined}`}
+        key={i + 1}>
         <CardImage cardInfo={met} gradient={`card__gradient--${i + 1}`} />
       </div>
     ))
@@ -29,4 +33,8 @@ export default function useCardsArray(payMets = null, funds) {
   }
 
   return { cards, order, handleClick }
+}
+
+const auxId = (payMets) => {
+  return payMets.length === 1 ? 'big-card' : undefined
 }
