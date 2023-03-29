@@ -11,7 +11,7 @@ export default function useCardsArray(payMets = null, funds) {
     cards = <CardImageFunds funds={funds} />
   } else {
     const cardFunds = [
-      <div className="card__wrapper" key={0}>
+      <div id={payMets.length === 1 && 'big-card'} className="card__wrapper" key={0}>
         <CardImageFunds funds={funds} />
       </div>,
     ]
