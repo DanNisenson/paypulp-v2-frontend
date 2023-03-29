@@ -58,8 +58,20 @@
   height: 40px;
 }
 
+.home-cards .card__wrapper-1:nth-child(1) {
+  height: 40px;
+}
+
+.home-cards .card__wrapper-1:nth-child(2) {
+  height: fit-content;
+}
+
 /* .home-cards .card__wrapper:nth-child(3) {
 } */
+
+#big-card {
+  height: fit-content;
+}
 
 
 .home-actions {

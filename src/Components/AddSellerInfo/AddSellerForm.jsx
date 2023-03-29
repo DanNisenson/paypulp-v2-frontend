@@ -10,8 +10,8 @@ const defaultForm = {
   hasLocation: 'noLocation',
   sellerName: '',
   category: '',
-  storeAddress: 'Calle Ronaldo 1',
-  storeAddressAddInfo: 'Puerta derecha',
+  storeAddress: '',
+  storeAddressAddInfo: '',
 }
 
 const AddSellerForm = () => {

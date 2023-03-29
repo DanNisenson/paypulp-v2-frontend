@@ -6,8 +6,8 @@ import useAddPaymentMethod from 'Hooks/useAddPaymentMethod'
 import CardImage from 'Components/Elements/CardImage'
 
 const addPaymentDefaultValues = {
-  cardOwnerName: 'Robert Robertz',
-  cardNumber: '1234567890123456',
+  cardOwnerName: '',
+  cardNumber: '',
 }
 
 const AddPaymentMethod = () => {
