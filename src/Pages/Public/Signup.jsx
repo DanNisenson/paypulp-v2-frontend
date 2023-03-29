@@ -8,18 +8,18 @@ import 'Styles/Auth.scss'
 import 'Styles/Signup.scss'
 
 const signupDefaultValues = {
-  firstName: 'Robert',
-  lastName: 'Robertz',
-  email: 'robert@robertz.com',
-  password: '1234Q@we',
-  confirmPassword: '1234Q@we',
-  phone: '1234567890',
-  address: 'Robert Street 4',
-  city: 'Madrid',
-  state: 'Madrid',
-  country: 'Spain',
-  birthDate: '1995-10-25',
-  gender: 'non-binary',
+  firstName: '',
+  lastName: '',
+  email: '',
+  password: '',
+  confirmPassword: '',
+  phone: '',
+  address: '',
+  city: '',
+  state: '',
+  country: '',
+  birthDate: '1985-10-25',
+  gender: '',
 }
 
 export default function Signup() {

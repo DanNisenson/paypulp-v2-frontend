@@ -10,8 +10,8 @@ const FormLogin = ({ setBuyerToken }) => {
   const { register, handleSubmit } = useForm({
     mode: 'onTouched',
     defaultValues: {
-      email: '1@ratking.com',
-      password: '1234Q@we',
+      email: '',
+      password: '',
     },
   })
 
