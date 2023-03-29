@@ -3,7 +3,7 @@ import CardsArray from 'Components/Elements/CardsArray'
 import TextHeader from 'Components/Elements/TextHeader'
 import useCardsArray from 'Hooks/useCardsArray'
 import { useState } from 'react'
-import 'Styles/Checkout.css'
+import 'Styles/Checkout.scss'
 import DonateAmounts from './CheckoutInfo/DonateAmounts'
 import FixAmount from './CheckoutInfo/FixAmount'
 

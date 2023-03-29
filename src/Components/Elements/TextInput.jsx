@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import toast from 'react-hot-toast'
-import 'Styles/Inputs.css'
+import 'Styles/Inputs.scss'
 import Cake from './Icons/Cake'
 import EyeClosed from './Icons/EyeClosed'
 import House from './Icons/House'

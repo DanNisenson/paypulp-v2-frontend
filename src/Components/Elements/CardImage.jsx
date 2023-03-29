@@ -1,4 +1,4 @@
-import 'Styles/CardImage.css'
+import 'Styles/CardImage.scss'
 import VisaLogo from './Icons/VisaLogo'
 
 const CardImage = ({ gradient, position, cardInfo }) => {

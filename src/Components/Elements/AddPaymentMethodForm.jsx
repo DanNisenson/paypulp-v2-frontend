@@ -1,5 +1,5 @@
 import { signupSchema } from 'Helpers/validationSchemas'
-import 'Styles/AddPaymentMethod.css'
+import 'Styles/AddPaymentMethod.scss'
 import TextInput from './TextInput'
 
 const AddPaymentMethodForm = ({ watch, errors, isValid, register }) => {

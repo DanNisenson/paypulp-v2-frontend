@@ -1,4 +1,4 @@
-import 'Styles/Inputs.css'
+import 'Styles/Inputs.scss'
 import ArrowRight from './Icons/ArrowRight'
 
 const FakeTextInput = ({ name, label, value }) => {

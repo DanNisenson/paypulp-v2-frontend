@@ -1,5 +1,5 @@
 import PayPulpLogo from 'Components/Elements/Icons/PayPulpLogo'
-import 'Styles/CardImage.css'
+import 'Styles/CardImage.scss'
 
 const CardImageFunds = ({ funds, position }) => {
   return (

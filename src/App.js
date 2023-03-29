@@ -1,24 +1,24 @@
-import QrPage from 'Pages/QrPage'
 import axios from 'axios'
-import {
-  createBrowserRouter,
-  Route,
-  redirect,
-  RouterProvider,
-  createRoutesFromElements,
-} from 'react-router-dom'
-import 'Styles/App.css'
-import 'Styles/Buttons.css'
 import MainApp from 'Components/MainApp'
 import GatewayPage from 'Pages/GatewayPage.jsx'
+import AddPaymentMethod from 'Pages/Private/AddPaymentMethod'
+import AddSellerInfoPage from 'Pages/Private/AddSellerInfoPage'
+import Home from 'Pages/Private/Home'
+import PayWithQR from 'Pages/Private/PayWithQR'
+import QrGenPage from 'Pages/Private/QrGenPage'
 import LoginPage from 'Pages/Public/LoginPage'
 import Signup from 'Pages/Public/Signup'
-import Home from 'Pages/Private/Home'
-import QrGenPage from 'Pages/Private/QrGenPage'
-import AddSellerInfoPage from 'Pages/Private/AddSellerInfoPage'
-import PayWithQR from 'Pages/Private/PayWithQR'
-import AddPaymentMethod from 'Pages/Private/AddPaymentMethod'
+import QrPage from 'Pages/QrPage'
 import { toast } from 'react-hot-toast'
+import {
+  createBrowserRouter,
+  createRoutesFromElements,
+  redirect,
+  Route,
+  RouterProvider,
+} from 'react-router-dom'
+import 'Styles/App.scss'
+import 'Styles/Buttons.scss'
 
 const checkForToken = async () => {
   const token = sessionStorage.getItem('token')

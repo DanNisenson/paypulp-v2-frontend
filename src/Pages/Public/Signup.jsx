@@ -4,8 +4,8 @@ import Registration1 from 'Components/Signup/Registration1'
 import Registration2 from 'Components/Signup/Registration2'
 import useSignup from 'Hooks/useSignup'
 import { useForm } from 'react-hook-form'
-import 'Styles/Auth.css'
-import 'Styles/Signup.css'
+import 'Styles/Auth.scss'
+import 'Styles/Signup.scss'
 
 const signupDefaultValues = {
   firstName: 'Robert',

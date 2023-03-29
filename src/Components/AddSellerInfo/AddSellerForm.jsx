@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form'
 import { toast } from 'react-hot-toast'
 import { useNavigate, useParams } from 'react-router'
 import UserInfo from 'Services/User'
-import 'Styles/AddSellerInfo.css'
+import 'Styles/AddSellerInfo.scss'
 
 const defaultForm = {
   hasLocation: 'noLocation',
