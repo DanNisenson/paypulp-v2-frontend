@@ -34,7 +34,3 @@ export default function useCardsArray(payMets = null, funds) {
 
   return { cards, order, handleClick }
 }
-
-const auxId = (payMets) => {
-  return payMets.length === 1 ? 'big-card' : undefined
-}
