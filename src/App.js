@@ -8,7 +8,6 @@ import PayWithQR from 'Pages/Private/PayWithQR'
 import QrGenPage from 'Pages/Private/QrGenPage'
 import LoginPage from 'Pages/Public/LoginPage'
 import Signup from 'Pages/Public/Signup'
-import QrPage from 'Pages/QrPage'
 import { toast } from 'react-hot-toast'
 import {
   createBrowserRouter,
@@ -72,7 +71,6 @@ const passParams = ({ params }) => params
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<MainApp />} loader={goToLogin}>
-      <Route path="qrpage" element={<QrPage />} /> {/* test only */}
       <Route path="login" element={<LoginPage />} loader={checkAlreadyAuthenticated} />
       <Route path="signup" element={<Signup />} loader={checkAlreadyAuthenticated} />
       <Route loader={checkForToken}>
