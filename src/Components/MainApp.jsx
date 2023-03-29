@@ -5,7 +5,22 @@ const MainApp = () => {
   return (
     <main>
       <Outlet />
-      <Toaster />
+      <Toaster
+        toastOptions={{
+          success: {
+            style: {
+              background: '#29efcb',
+              color: ' #363b3e',
+            },
+          },
+          error: {
+            style: {
+              background: '#29efcb',
+              color: ' #363b3e',
+            },
+          },
+        }}
+      />
     </main>
   )
 }
