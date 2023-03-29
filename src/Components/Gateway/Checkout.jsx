@@ -28,7 +28,6 @@ const Checkout = ({
     } else {
       dataToSubmit = payMets[order - 1]
     }
-    console.log('Submitting data:', dataToSubmit)
 
     confirmTransaction(dataToSubmit)
   }
