@@ -8,7 +8,7 @@ import Mail from './Icons/Mail'
 import Person from './Icons/Person'
 import Phone from './Icons/Phone'
 
-const TextInput = ({ type, name, label, validationType, register, errors }) => {
+const TextInput = ({ type, name, label, validationType, register, errors, className }) => {
   const errorMessage = errors?.[name]?.message
 
   useEffect(() => {
@@ -20,7 +20,7 @@ const TextInput = ({ type, name, label, validationType, register, errors }) => {
   }, [errorMessage, name])
 
   return (
-    <div className="text-input__wrapper">
+    <div className={`text-input__wrapper ${className}`}>
       <label className="text-aux" htmlFor={name}>
         {label}
       </label>

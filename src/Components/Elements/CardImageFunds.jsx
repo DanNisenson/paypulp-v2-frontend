@@ -1,7 +1,10 @@
 import PayPulpLogo from 'Components/Elements/Icons/PayPulpLogo'
+import { userContext } from 'Context/UserContext'
+import { useContext } from 'react'
 import 'Styles/CardImage.scss'
 
 const CardImageFunds = ({ funds, position }) => {
+  const { userCtxt } = useContext(userContext)
   return (
     <div className={`card-funds card-funds__gradient ${position}`}>
       <div className="card-funds__top-info">
@@ -12,8 +15,8 @@ const CardImageFunds = ({ funds, position }) => {
       </div>
       <div className="card-funds__number">Saldo disponible {funds} €</div>
       <div className="card-funds__bottom-info">
-        <div className="card-funds__text">First M Lastname</div>
-        <div className="card-funds__text">00/00</div>
+        <div className="card-funds__text">{userCtxt.firstName}</div>
+        <div className="card-funds__text">**/**</div>
       </div>
     </div>
   )
