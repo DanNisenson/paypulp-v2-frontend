@@ -1,7 +1,6 @@
-import { useContext, useEffect, useState } from 'react'
+import { useState } from 'react'
 import { toast } from 'react-hot-toast'
-import { useNavigate } from 'react-router-dom'
-import { userContext } from '../Context/UserContext'
+import { useMatch, useNavigate } from 'react-router-dom'
 import Auth from '../Services/Auth'
 
 /**
@@ -9,10 +8,10 @@ import Auth from '../Services/Auth'
  * @param {boolean} isOnGateway if redirected from QR link -> redirect to checkout
  * @returns {error, errorSetter, onSubmit}
  */
-export default function useLogin(isOnGateway, setBuyerToken) {
-  const { setUserInfo, setTransactions, setPaymentMethods } = useContext(userContext)
+export default function useLogin(setBuyerToken) {
   const [loginError, setLoginError] = useState(null)
   const navigate = useNavigate()
+  const isOnGateway = !useMatch('/login')
 
   const onSubmit = async (userData) => {
     try {
@@ -21,7 +20,7 @@ export default function useLogin(isOnGateway, setBuyerToken) {
       if (isOnGateway) {
         setBuyerToken(userToken)
       } else if (!isOnGateway) {
-        localStorage.setItem('token', userToken)
+        sessionStorage.setItem('token', userToken)
         navigate('/home')
       }
     } catch (error) {

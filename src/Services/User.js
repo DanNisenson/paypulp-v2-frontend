@@ -5,17 +5,21 @@ class UserInfo {
     return { headers: { Authorization: token } }
   }
 
-  static getUserInfo = async () => {
-    const token = localStorage.getItem('token')
-    const config = UserInfo.getConfig(token)
-    const res = await axios.get(`${process.env.REACT_APP_BASE_URL}/private/user/userdata`, config)
+  static getUserInfo = async (tkn) => {
+    const token = sessionStorage.getItem('token') || tkn
+    const config = this.getConfig(token)
+    const res = await axios.get(`${process.env.REACT_APP_BASE_URL}/private/user`, config)
     return res
   }
 
-  static updateCostumerInfo = async () => {
-    const token = localStorage.getItem('token')
-    const config = UserInfo.getConfig(token)
-    const res = await axios.patch(`${process.env.REACT_APP_BASE_URL}/private/user/userdata`, config)
+  static postSellerInfo = async (body) => {
+    const token = sessionStorage.getItem('token')
+    const config = this.getConfig(token)
+    const res = await axios.post(
+      `${process.env.REACT_APP_BASE_URL}/private/user/sellerinfo`,
+      body,
+      config,
+    )
     return res
   }
 }
