@@ -17,8 +17,6 @@ const useGateway = (sellerInfo) => {
       const req = async () => {
         const { funds, payMets } = await getBuyerInfo()
 
-        canAffordPurschase(funds, payMets)
-
         const res = await postTransaction(sellerInfo, buyerToken)
         const addTransInfo = {
           ...transactionInfo,
@@ -61,16 +59,6 @@ const useGateway = (sellerInfo) => {
       return res.data
     } catch (error) {
       handleError()
-    }
-  }
-
-  const canAffordPurschase = (funds, payMets) => {
-    const hasPayMets = !!payMets.length
-    const hasEnoughFunds = parseInt(funds) > parseInt(sellerInfo.totalAmount)
-
-    if (!hasPayMets && !hasEnoughFunds) {
-      resetPage()
-      toast.error('No tienes fondos suficientes para realizar esta compra')
     }
   }
 
