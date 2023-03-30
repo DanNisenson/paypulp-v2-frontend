@@ -1,5 +1,6 @@
 import FundsInput from 'Components/Elements/FundsInput'
 import { userContext } from 'Context/UserContext'
+import { encodeURI } from 'js-base64'
 import { useContext, useState } from 'react'
 import QRCode from 'react-qr-code'
 import 'Styles/QrGen.scss'
@@ -8,10 +9,13 @@ const baseUrl = process.env.REACT_APP_FRONT_URL
 
 const QrGen = ({ checkoutType, goToHome }) => {
   const { userCtxt } = useContext(userContext)
-  const [write, setWrite] = useState(getDefaultUrl(baseUrl, userCtxt.userUuid, checkoutType))
+  const encodeType = encodeURI(checkoutType)
+  const [write, setWrite] = useState(getDefaultUrl(baseUrl, userCtxt.userUuid, encodeType))
 
   const handleChange = (amount) => {
-    const url = `${baseUrl}/gateway/${userCtxt.userUuid}/${checkoutType}/${amount}`
+    const encodeAmt = encodeURI(amount)
+    const url = `${baseUrl}/gateway/${userCtxt.userUuid}/${encodeType}/${encodeAmt}`
+    console.log(url)
     setWrite(url)
   }
 
@@ -62,7 +66,8 @@ const QrGen = ({ checkoutType, goToHome }) => {
 }
 
 const getDefaultUrl = (base, uuid, type) => {
-  if (type === 'donate') return `${base}/gateway/${uuid}/${type}/4`
+  const encode = encodeURI('4')
+  if (type === 'donate') return `${base}/gateway/${uuid}/${type}/${encode}`
   return ''
 }
 

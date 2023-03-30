@@ -1,10 +1,16 @@
 import { useLoaderData } from 'react-router-dom'
+import { decode } from 'js-base64'
 import Login from 'Components/Login/Login'
 import Checkout from 'Components/Gateway/Checkout'
 import useGateway from 'Hooks/useGateway'
 
 const GatewayPage = () => {
-  const sellerInfo = useLoaderData()
+  let sellerInfo = useLoaderData()
+  sellerInfo = {
+    ...sellerInfo,
+    checkoutType: decode(sellerInfo.checkoutType),
+    totalAmount: decode(sellerInfo.totalAmount),
+  }
   const {
     buyerToken,
     setBuyerToken,
