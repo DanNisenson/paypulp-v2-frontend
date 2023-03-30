@@ -35,7 +35,7 @@ const HomeActions = ({ accountType }) => {
         </div>
         <div className="home-actions__bottom-btn" onClick={() => goToQrGen(`donate`)}>
           <HandHeart />
-          Recibir donaciones
+          Recibir aportes
         </div>
       </div>
     </div>
