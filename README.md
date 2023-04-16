@@ -14,7 +14,7 @@
     <br />    
     Live site
      - 
-    <a href="https://github.com/DanNisenson/paypulp-v2-frontend">Front-end</a>
+    <a href="https://github.com/DanNisenson/paypulp-v2-backend">Back-end</a>
     
   </p>
 </div>
